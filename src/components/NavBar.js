@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from '@mui/material/Link';
-
+import CartWidget from './CartWidget';
 
 function ButtonAppBar() {
     return (
@@ -29,6 +29,7 @@ function ButtonAppBar() {
                     <Link href="#" color="#fff" variant="h6" sx={{ flexGrow: 1 }}>Mascotas</Link>
                     <Link href="#" color="#fff" variant="h6" sx={{ flexGrow: 1 }}>Servicios</Link>
                     <Link href="#" color="#fff" variant="h6" sx={{ flexGrow: 1 }}>Sucursales</Link>
+                    <CartWidget/>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
