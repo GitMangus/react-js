@@ -7,7 +7,7 @@ const ItemListContainer = () => {
         {
             id:1,
             img: './assets/food/pedigree-perro.jpg',
-            name: "PEDIGREE",
+            name: "Pedigree",
             description: "Alimento Pedigree cachorro sano crecimiento",
             price: "8500",
             stock: 10
@@ -15,7 +15,7 @@ const ItemListContainer = () => {
         {
             id:2,
             img: './assets/food/dogchow-perro.jpg',
-            name: "DOG CHOW",
+            name: "Dog Chow",
             description: "Alimento Dog Chow cachorros medianos y grandes",
             price: "7920",
             stock: 8
@@ -31,7 +31,7 @@ const ItemListContainer = () => {
         {
             id:4,
             img: './assets/food/raza-perro.png',
-            name: "RAZA",
+            name: "Raza",
             description: "Alimento Raza adulto sabor carne",
             price: "6000",
             stock: 5
