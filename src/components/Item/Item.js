@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-import ItemCount from './ItemCount';
+import ItemCount from '../ItemCount/ItemCount';
 
-const ItemCard = ({ imagen, nombre, descripcion, precio, stock }) => {
+const Item = ({ producto }) => {
 
     return (
         <div>
@@ -10,24 +10,23 @@ const ItemCard = ({ imagen, nombre, descripcion, precio, stock }) => {
                 <CardMedia
                     component="img"
                     height="300"
-                    image={imagen}
+                    image={producto.img}
                     alt="alimento"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        {nombre}
+                        {producto.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {descripcion}
+                        {producto.description}
                     </Typography>
-                    <span>$ {precio}</span>
-                    <span>Stock {stock}</span>
-                    <ItemCount stock={stock} />
+                    <span>$ {producto.price}</span>
+                    <p>Stock {producto.stock}</p>
+                    <ItemCount stock={producto.stock} />
                 </CardContent>
             </Card>
         </div>
-
-    );
+    )
 }
 
-export default ItemCard
+export default Item;
