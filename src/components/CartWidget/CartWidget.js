@@ -4,7 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const CartWidget = () => {
     return (
-            <IconButton aria-label="shopping cart" sx={{ fontSize: 30 }} color="inherit">
+            <IconButton aria-label="shopping cart" size="large" color="inherit" sx={{ ml: 20 }}>
               <ShoppingCartIcon/>
             </IconButton>       
     )

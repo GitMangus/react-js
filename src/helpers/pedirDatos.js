@@ -10,6 +10,6 @@ export const pedirDatos = () => {
             } else {
                 reject("Hubo un error")
             }
-        }, 2000)
+        }, 1000)
     })
 }

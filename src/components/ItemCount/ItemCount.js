@@ -22,7 +22,7 @@ const ItemCount = ({ stock }) => {
       <Button onClick={handleRestar}>-</Button> 
       <span>{counter}</span>
       <Button onClick={handleSumar}>+</Button>
-      <Button size="small" variant="contained">Comprar</Button>
+      <Button size="small" variant="contained" disabled= {counter===0}>Comprar</Button>
     </div>
   )
 }

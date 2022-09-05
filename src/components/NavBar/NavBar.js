@@ -6,32 +6,36 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Link from '@mui/material/Link';
-import CartWidget from '../CartWidget/CartWidget'
+import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
         <div>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
-                    <Toolbar>
+            <Box>
+                <AppBar position="fixed">
+                    <Toolbar sx={{ m: 2 }}>
                         <IconButton
                             size="large"
                             edge="start"
                             color="inherit"
                             aria-label="menu"
-                            sx={{ mr: 2 }}
+                            sx={{ mx: 10 }}
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                            PUPPIS
-                        </Typography>
-                        <Link href="#" color="#fff" variant="h6" sx={{ flexGrow: 1 }}>Mascotas</Link>
-                        <Link href="#" color="#fff" variant="h6" sx={{ flexGrow: 1 }}>Servicios</Link>
-                        <Link href="#" color="#fff" variant="h6" sx={{ flexGrow: 1 }}>Sucursales</Link>
-                        <CartWidget/>
-                        <Button color="inherit">Login</Button>
+                        <Link to='/'><img src='./assets/logo_puppis.png' height="50px" alt="logo"/></Link>
+                        <Link to='/productos/alimento'><Typography color="#fff" variant="h6" sx={{ mx: 15 }}>
+                            Alimento
+                        </Typography></Link>
+                        <Link to='/productos/comederos'><Typography color="#fff" variant="h6" sx={{ mx: 15 }}>
+                            Comederos
+                        </Typography></Link>
+                        <Link to='/productos/shampoo'><Typography color="#fff" variant="h6" sx={{ mx: 15 }}>
+                            Shampoo
+                        </Typography></Link>
+                        <CartWidget />
+                        <Button color="inherit" size="large">Login</Button>
                     </Toolbar>
                 </AppBar>
             </Box>
