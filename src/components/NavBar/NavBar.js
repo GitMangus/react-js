@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 
+
 function NavBar() {
     return (
         <div>

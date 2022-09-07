@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './ItemListContainer.css';
 import { useEffect, useState } from "react";
 import { pedirDatos } from '../../helpers/pedirDatos';
 import ItemList from '../ItemList/ItemList';
@@ -35,7 +36,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      <h2>Productos</h2>
+      <h2 className='title'>Favoritos para tu mascota</h2>
       
       {
         loading ? <Box sx={{ width: '100%' }}>

@@ -1,5 +1,11 @@
 .container {
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 100px;
+}
+
+.stock {
+    color: rgb(95, 95, 95);
+    font-weight: 600;
+    font-size: 16px;
 }

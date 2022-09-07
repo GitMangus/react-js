@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './Item.css'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 const Item = ({ producto }) => {
@@ -23,9 +22,7 @@ const Item = ({ producto }) => {
                         {producto.description}
                     </Typography>
                     <span className="item__precio">$ {producto.price}</span>
-                    <p>Stock {producto.stock}</p>
-                    <ItemCount stock={producto.stock} />
-                    <Link to={`/item/${producto.id}`}>Ver más</Link>
+                    <Link to={`/item/${producto.id}`} className="item__info">Ver más</Link>
                 </CardContent>
             </Card>
         </div>
