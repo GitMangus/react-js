@@ -1,11 +1,10 @@
 import React from 'react'
-import { useState } from 'react';
 import Button from '@mui/material/Button'
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, counter, setCounter, handleAgregar }) => {
 
-  const [counter, setCounter] = useState(1) //Estado: variable de la cual mi comp. depende p/su renderizado 
-  
+
+
   const handleSumar = () => {
     if (counter < stock)
       setCounter(counter + 1)
@@ -13,16 +12,17 @@ const ItemCount = ({ stock }) => {
 
   const handleRestar = () => {
     if (counter > 0)
-      setCounter(counter - 1)   
+      setCounter(counter - 1)
   }
+
 
   return (
     <div>
       <br />
-      <Button onClick={handleRestar}>-</Button> 
+      <Button onClick={handleRestar}>-</Button>
       <span>{counter}</span>
       <Button onClick={handleSumar}>+</Button>
-      <Button size="small" variant="contained" disabled= {counter===0}>Comprar</Button>
+      <Button onClick={handleAgregar} sx={{ display: 'flex', flexDirection: 'column', my: 2 }} size="small" variant="contained" color="success" disabled={counter === 0}>Agregar al carrito</Button>
     </div>
   )
 }

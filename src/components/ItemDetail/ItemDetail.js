@@ -1,10 +1,29 @@
 import React from 'react';
 import './ItemDetail.css'
-import { CardContent, CardMedia, Typography, Box, Button } from '@mui/material';
+import { CardContent, CardMedia, Typography, Box } from '@mui/material';
 import ItemCount from '../ItemCount/ItemCount';
+import { useState } from 'react';
+import Select from '../Select/Select';
+
 
 
 const ItemDetail = ({ item }) => {
+
+  const [cantidad, setCantidad] = useState(1) //Estado: variable de la cual mi comp. depende p/su renderizado 
+  const [option, setOption] = useState(item.options[0].value)
+
+  const handleAgregar = () => {
+    const itemToCart = {
+      id: item.id,
+      nombre: item.name,
+      precio: item.price,
+      option,
+      cantidad
+    }
+    console.log(itemToCart)
+  }
+
+
   return (
     <div className="container">
 
@@ -40,23 +59,19 @@ const ItemDetail = ({ item }) => {
           >
             {item.descriptionTwo}
           </Typography>
-          <Button
-            variant="outlined"
-            size="small"
-            sx={{ mr: 2 }}
-          >
-            {item.options[0]}
-          </Button>
-          <Button
-            variant="outlined"
-            size="small"
-          >
-            {item.options[1]}
-          </Button>
+
+          <Select options={item.options} onSelect={setOption} />
+
           <span className="item__precio">$ {item.price}</span>
           <p>Seleccione la cantidad:</p>
           <p className="stock">Stock {item.stock}</p>
-          <ItemCount stock={item.stock} />
+
+
+
+          <ItemCount stock={item.stock}
+            counter={cantidad}
+            setCounter={setCantidad}
+            handleAgregar={handleAgregar} />
         </CardContent>
       </Box>
 
