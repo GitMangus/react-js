@@ -1,30 +1,20 @@
 import * as React from 'react';
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import Banner from './components/Banner/Banner';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
+import { LoginProvider } from './context/LoginContext';
+import AppRouter from './router/AppRouter';
 
 
 function App() {
+
   return (
-    <div>
-      <BrowserRouter>
+    <LoginProvider>
+      <CartProvider>
 
-        <NavBar />
-        <Banner />
+        <AppRouter />
 
-        <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/productos/:categoryId' element={<ItemListContainer />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-          <Route path='*' element={<Navigate to="/" />} />
-        </Routes>
-
-      </BrowserRouter>
-
-    </div>
+      </CartProvider>
+    </LoginProvider>
   );
 }
 

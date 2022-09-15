@@ -8,9 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
+import { useLoginContext } from '../../context/LoginContext';
 
 
 function NavBar() {
+
+    const { user, logout } = useLoginContext()
+
     return (
         <div>
             <Box>
@@ -25,7 +29,7 @@ function NavBar() {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Link to='/'><img src='./assets/logo_puppis.png' height="50px" alt="logo"/></Link>
+                        <Link to='/'><img src='./assets/logo_puppis.png' height="50px" alt="logo" /></Link>
                         <Link to='/productos/alimento'><Typography color="#fff" variant="h6" sx={{ mx: 15 }}>
                             Alimento
                         </Typography></Link>
@@ -37,6 +41,8 @@ function NavBar() {
                         </Typography></Link>
                         <CartWidget />
                         <Button color="inherit" size="large">Login</Button>
+                        <small>Bienvenido: {user.user}</small>
+                        <button onClick={logout}>Logout</button>
                     </Toolbar>
                 </AppBar>
             </Box>

@@ -4,12 +4,17 @@ import { CardContent, CardMedia, Typography, Box } from '@mui/material';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 import Select from '../Select/Select';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
 
 
 
 const ItemDetail = ({ item }) => {
 
-  const [cantidad, setCantidad] = useState(1) //Estado: variable de la cual mi comp. depende p/su renderizado 
+  const { cart, addToCart, isInCart } = useCartContext()
+  console.log(cart)
+
+  const [cantidad, setCantidad] = useState(1) 
   const [option, setOption] = useState(item.options[0].value)
 
   const handleAgregar = () => {
@@ -20,7 +25,9 @@ const ItemDetail = ({ item }) => {
       option,
       cantidad
     }
-    console.log(itemToCart)
+
+    console.log(isInCart(item.id))
+    addToCart(itemToCart)
   }
 
 
@@ -66,12 +73,15 @@ const ItemDetail = ({ item }) => {
           <p>Seleccione la cantidad:</p>
           <p className="stock">Stock {item.stock}</p>
 
+          {
+            isInCart(item.id)
+              ? <Link to='/cart'>Finalizar compra</Link>
+              : <ItemCount stock={item.stock}
+                counter={cantidad}
+                setCounter={setCantidad}
+                handleAgregar={handleAgregar} />
+          }
 
-
-          <ItemCount stock={item.stock}
-            counter={cantidad}
-            setCounter={setCantidad}
-            handleAgregar={handleAgregar} />
         </CardContent>
       </Box>
 

@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import { useParams } from 'react-router-dom';
 
+
 const ItemListContainer = () => {
 
   const [productos, setProductos] = useState([])
@@ -34,14 +35,18 @@ const ItemListContainer = () => {
       })
   }, [categoryId])
 
+
+
   return (
     <div>
       <h2 className='title'>Favoritos para tu mascota</h2>
       
       {
-        loading ? <Box sx={{ width: '100%' }}>
+        loading 
+        ? <Box sx={{ width: '100%' }}>
           <LinearProgress />
-        </Box> : <ItemList productos={productos} />
+        </Box> 
+        : <ItemList productos={productos} />
       }
       
     </div>
