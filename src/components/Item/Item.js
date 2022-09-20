@@ -22,7 +22,13 @@ const Item = ({ producto }) => {
                         {producto.description}
                     </Typography>
                     <span className="item__precio">$ {producto.price}</span>
-                    <Link to={`/item/${producto.id}`} className="item__info">Ver más</Link>
+
+                    {
+                        producto.stock > 0
+                        ? <Link to={`/item/${producto.id}`} className="item__info">Ver más</Link>
+                        : <p>Sin stock</p>
+                    }
+                    
                 </CardContent>
             </Card>
         </div>

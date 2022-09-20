@@ -1,5 +1,10 @@
+import { Button, IconButton } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import { LoginContext } from '../../context/LoginContext'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import GoogleIcon from '@mui/icons-material/Google';
+import './LoginScreen.css'
 
 const LoginScreen = () => {
 
@@ -26,21 +31,42 @@ const LoginScreen = () => {
     }
 
     return (
-        <div>
-            <h2>Bienvenido a Puppis</h2>
-            <form onSubmit={handleSubmit}>
-                <input type={'email'}
-                    value={email}
-                    onChange={handleEmailChange}
-                />
+        <div className='login__div'>
+            <div className='login__imagen'>
+                <img src='../assets/imagen-login.webp' height="500px" alt="login" />
+            </div>
 
-                <input type={'password'}
-                    value={pass}
-                    onChange={handlePassChange}
-                />
+            <div>
+                <h1 className='login__title'>Bienvenido a Puppis</h1>
 
-                <button type='submit'>Ingresar</button>
-            </form>
+                <form className='login__formulario' onSubmit={handleSubmit}>
+                    <label className='login__label'>Email</label>
+                    <input type={'email'}
+                        className='login__input'
+                        value={email}
+                        onChange={handleEmailChange}
+                    />
+                    <label className='login__label'>Contraseña</label>
+                    <input type={'password'}
+                        className='login__input'
+                        value={pass}
+                        onChange={handlePassChange}
+                    />
+
+                    {user.error && <small>{user.error}</small>}
+                    <Button type='submit'
+                        className='login__button'
+                        variant="contained"
+                    >Ingresar</Button>
+
+                    <div className='login__icons'>
+                        <IconButton className='login__icon'><FacebookIcon /></IconButton>
+                        <IconButton className='login__icon'><GoogleIcon /></IconButton>
+                        <IconButton className='login__icon'><InstagramIcon /></IconButton>
+                    </div>
+
+                </form>
+            </div>
         </div>
     )
 }

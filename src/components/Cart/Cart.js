@@ -1,8 +1,10 @@
 import React from 'react'
 import { useCartContext } from '../../context/CartContext';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { Button } from '@mui/material';
+import { Button, Card, CardContent, CardMedia } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import './Cart.css';
 
 
 const Cart = () => {
@@ -10,31 +12,49 @@ const Cart = () => {
     const { cart, cartTotal, emptyCart, removeItem } = useCartContext()
 
     if (cart.length === 0) {
-        return ( 
-            <div>
-                <h2>Tu carrito está vacío</h2>
-              
+        return (
+            <div className='cart__title'>
+                <h2 >Tu carrito está vacío</h2>
+
                 <Link to="/">Ir a comprar</Link>
             </div>
         )
-    } 
+    }
 
     return (
-        <div>
-            <h2>Carrito</h2>
+        <div className='cart'>
+            <div>
+                <ShoppingBasketIcon />
+                <h2 className='cart__title'>MI CARRITO</h2>
+            </div>
 
             {cart.map((item) => (
-                <div key={item.id}>
-                    <h3>{item.name}</h3>
-                    <p>Precio: {item.price}</p>
-                    <p>Cantidad: {item.cantidad}</p>
-                    <small>Opción:{item.options}</small>
-                    <Button onClick={() => removeItem(item.id)}><DeleteForeverIcon /></Button>
-                </div>
+                <Card key={item.id} 
+                className='cart__card'
+                sx={{ width: 700 }}
+                >
+
+                    <CardMedia
+                        component="img"
+                        sx={{ width: 200 }}
+                        height="250"
+                        image={item.img}
+                        alt="producto"
+                    />
+
+                    <CardContent>
+                        <h3>{item.name}</h3>
+                        <p>{item.description}</p>
+                        <span>Precio: ${item.price}</span>
+                        <p>Cantidad: {item.cantidad}</p>
+                        <p>Opción: {item.option}</p>
+                    <Button onClick={() => removeItem(item.id)}>Eliminar<DeleteForeverIcon /></Button>    
+                    </CardContent>
+                </Card>
             ))}
 
             <h4>Total: ${cartTotal()}</h4>
-            <button onClick={emptyCart}>Vaciar carrito</button>
+            <Button onClick={emptyCart} variant="contained">Vaciar carrito</Button>
         </div>
     )
 }

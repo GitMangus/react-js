@@ -1,0 +1,49 @@
+.login__div {
+    border: 1rem solid rgba(2, 88, 148, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 200px;
+}
+
+.login__imagen {
+    display: flex;
+}
+
+.login__title {
+    color: rgba(2, 88, 148, 255);
+    font-size: 50px;
+}
+
+.login__formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__input {
+    margin: 15px 0;
+    height: 25px;
+}
+
+.login__label {
+    color: rgb(110, 110, 110);
+}
+
+.login__button {
+    width: 90px;
+    display: flex;
+    align-self: center;
+}
+
+.login__icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 0 60px;
+}
+
+.login__icon {
+    width: 50px;
+    justify-content: space-between;
+}

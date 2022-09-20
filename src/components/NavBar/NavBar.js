@@ -40,9 +40,9 @@ function NavBar() {
                             Shampoo
                         </Typography></Link>
                         <CartWidget />
-                        <Button color="inherit" size="large">Login</Button>
+                        
                         <small>Bienvenido: {user.user}</small>
-                        <button onClick={logout}>Logout</button>
+                        <Button onClick={logout} variant="contained" color="success" sx={{ mx: 2 }}>Logout</Button>
                     </Toolbar>
                 </AppBar>
             </Box>

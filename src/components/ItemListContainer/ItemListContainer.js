@@ -1,38 +1,41 @@
 import * as React from 'react';
 import './ItemListContainer.css';
 import { useEffect, useState } from "react";
-import { pedirDatos } from '../../helpers/pedirDatos';
 import ItemList from '../ItemList/ItemList';
-import Box from '@mui/material/Box';
-import LinearProgress from '@mui/material/LinearProgress';
 import { useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 
 const ItemListContainer = () => {
 
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
+  
   const { categoryId } = useParams()
   //console.log(categoryId)
 
   useEffect(() => {
     setLoading(true);
+    //Paso 1: Armar la ref (sync)
+    const productosRef = collection(db, 'productos')
+    const q = categoryId
+      ? query(productosRef, where('category', '==', categoryId))
+      : productosRef
 
-    pedirDatos()
-      .then(res => {
-        if(!categoryId){
-          setProductos(res);
-        } else {
-          setProductos(res.filter ((prod) => prod.category === categoryId));
-        }
-        
-      })
-      .catch(error => {
-        console.log(error)
+    //Paso 2: Consumir la ref (async)
+    getDocs(q)
+      .then((resp) => {
+        const productosDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        console.log(productosDB)
+
+        setProductos(productosDB)
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(false)
       })
+
   }, [categoryId])
 
 
@@ -40,15 +43,13 @@ const ItemListContainer = () => {
   return (
     <div>
       <h2 className='title'>Favoritos para tu mascota</h2>
-      
+
       {
-        loading 
-        ? <Box sx={{ width: '100%' }}>
-          <LinearProgress />
-        </Box> 
-        : <ItemList productos={productos} />
+        loading
+          ? <Loader />
+          : <ItemList productos={productos} />
       }
-      
+
     </div>
   )
 }
