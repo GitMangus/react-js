@@ -1,33 +1,25 @@
 import { Button, IconButton } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { LoginContext } from '../../context/LoginContext'
+import useForm from '../../hooks/useForm';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
 import './LoginScreen.css'
 
+
 const LoginScreen = () => {
 
     const { login, user } = useContext(LoginContext)
-    console.log(user)
-
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const handlePassChange = (e) => {
-        setPass(e.target.value)
-    }
+    const { values, handleInputChange } = useForm({
+        email: '',
+        pass: ''
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        login({
-            email, pass
-        })
+        login(values)
     }
 
     return (
@@ -41,16 +33,21 @@ const LoginScreen = () => {
 
                 <form className='login__formulario' onSubmit={handleSubmit}>
                     <label className='login__label'>Email</label>
-                    <input type={'email'}
+                    <input
+                        name="email"
+                        type={'email'}
                         className='login__input'
-                        value={email}
-                        onChange={handleEmailChange}
+                        value={values.email}
+                        onChange={handleInputChange}
                     />
+
                     <label className='login__label'>Contraseña</label>
-                    <input type={'password'}
+                    <input
+                        name="pass"
+                        type={'password'}
                         className='login__input'
-                        value={pass}
-                        onChange={handlePassChange}
+                        value={values.pass}
+                        onChange={handleInputChange}
                     />
 
                     {user.error && <small>{user.error}</small>}

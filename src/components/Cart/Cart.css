@@ -1,14 +1,39 @@
 .cart{
     margin: 100px;
+    display: flex;
+    justify-content: center;
 }
 
 .cart__title{
     display: inline-block;
-    margin: 10px;
+    margin: 20px 0;
     font-size: 20px;
+    color: rgb(87, 87, 87);
 }
 
 .cart__card{
-    margin: 10px;
+    margin: 30px 5px;
+    padding: 20px;
     display: flex;
+}
+
+.cart__content{
+   color: rgb(105, 105, 105);
+   margin: 15px 0;
+}
+
+.cart__price{
+    font-weight: 700;
+}
+
+.cart__resumen{
+    display: flex;
+    flex-direction: column;
+    margin: 70px;
+}
+
+.cart__total{
+    font-size: 25px;
+    color: rgba(2, 88, 148, 255);
+    margin: 20px 0;
 }

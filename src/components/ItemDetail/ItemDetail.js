@@ -77,7 +77,7 @@ const ItemDetail = ({ item }) => {
 
           {
             isInCart(item.id)
-              ? <Link to='/cart'>Finalizar compra</Link>
+              ? <Link to='/cart'>Ir a mi carrito</Link>
               : <ItemCount stock={item.stock}
                 counter={cantidad}
                 setCounter={setCantidad}

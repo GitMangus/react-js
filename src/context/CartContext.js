@@ -43,7 +43,10 @@ export const CartProvider = ({ children }) => {
                 setCart([])
             }
         })
+    }
 
+    const finishPurchase = () => {
+        setCart([])
     }
 
     useEffect(() => {
@@ -58,8 +61,9 @@ export const CartProvider = ({ children }) => {
             cartQuantity,
             cartTotal,
             emptyCart,
-            removeItem
-          }}>
+            removeItem,
+            finishPurchase
+        }}>
             {children}
         </CartContext.Provider>
     )
