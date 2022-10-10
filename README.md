@@ -17,6 +17,8 @@ Se utiliz√≥ Bootstrap para el armado del carousel debido a que en MUI esta opci√
 ![Node.js](https://img.shields.io/badge/-Node.js-222222?style=flat&logo=node.js&logoColor=339933)
 ![React](https://img.shields.io/badge/-React-222222?style=flat&logo=React&logoColor=61DAFB)
 ![Firebase](https://img.shields.io/badge/-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=ffffff)
+![SWAL](https://img.shields.io/badge/SWAL-Sweet%20Alert-orange)
+
 
 LINK A NETLIFY:
 https://react-puppis.netlify.app/
