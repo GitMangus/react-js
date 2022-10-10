@@ -1,0 +1,16 @@
+.footer__bg {
+    background-color: rgba(25, 118, 210, 255);
+    color: white;
+    width: 100%;
+}
+
+.footer__logo {
+    width: 200px;
+    display: flex;
+    margin: 5px;
+}
+
+.footer__award {
+    width: 100px;
+    margin: 10px 50px;
+}

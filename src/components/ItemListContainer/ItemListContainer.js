@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './ItemListContainer.css';
+import Banner from '../../components/Banner/Banner';
 import ItemList from '../ItemList/ItemList';
 import Loader from '../Loader/Loader';
 import useProducts from '../../hooks/useProducts';
@@ -11,7 +12,8 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      <h2 className='title'>Favoritos para tu mascota</h2>
+      <Banner />
+      <h3 className='title'>Favoritos para tu mascota</h3>
 
       {
         loading
@@ -24,7 +26,3 @@ const ItemListContainer = () => {
 }
 
 export default ItemListContainer;
-
-
-
-

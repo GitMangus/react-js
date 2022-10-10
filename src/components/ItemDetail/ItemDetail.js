@@ -1,17 +1,16 @@
 import React from 'react';
 import './ItemDetail.css'
-import { CardContent, CardMedia, Typography, Box } from '@mui/material';
+import { CardContent, CardMedia, Typography, Box, Button } from '@mui/material';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 import Select from "../Select/Select"
 
-
 const ItemDetail = ({ item }) => {
 
-  const { cart, addToCart, isInCart } = useCartContext()
-  console.log(cart)
+  const { addToCart, isInCart } = useCartContext()
+ 
 
   const [cantidad, setCantidad] = useState(1)
   const [option, setOption] = useState(item.options[0].value)
@@ -27,19 +26,16 @@ const ItemDetail = ({ item }) => {
       cantidad
     }
 
-    console.log(isInCart(item.id))
     addToCart(itemToCart)
   }
-
-  // if (stock === 0) { condicionar para que se deshabilite el counter}
 
   return (
     <div className="container">
 
       <CardMedia
         component="img"
-        sx={{ width: 300 }}
-        height="450"
+        sx={{ width: 500, margin: 3 }}
+        height="500"
         image={item.img}
         alt="producto"
       />
@@ -77,7 +73,7 @@ const ItemDetail = ({ item }) => {
 
           {
             isInCart(item.id)
-              ? <Link to='/cart'>Ir a mi carrito</Link>
+              ? <Link to='/cart'><Button variant="outlined">Ir a mi carrito</Button></Link>
               : <ItemCount stock={item.stock}
                 counter={cantidad}
                 setCounter={setCantidad}
@@ -86,7 +82,6 @@ const ItemDetail = ({ item }) => {
 
         </CardContent>
       </Box>
-
     </div>
   )
 }

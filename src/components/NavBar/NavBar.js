@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import { useLoginContext } from '../../context/LoginContext';
@@ -27,7 +26,6 @@ function NavBar() {
                             aria-label="menu"
                             sx={{ mx: 10 }}
                         >
-                            <MenuIcon />
                         </IconButton>
                         <Link to='/'><img src='./assets/logo_puppis.png' height="50px" alt="logo" /></Link>
                         <Link to='/productos/alimento'><Typography color="#fff" variant="h6" sx={{ mx: 15 }}>

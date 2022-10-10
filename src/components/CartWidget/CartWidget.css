@@ -8,6 +8,8 @@
 .widget-visible {
     visibility: visible;
     opacity: 1;
+    color: white;
+    margin-right: 10px;
 }
 
 .cart__quantity{

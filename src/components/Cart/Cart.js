@@ -5,9 +5,7 @@ import { Button, Card, CardContent, CardMedia } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import './Cart.css';
-
-
-
+import Banner from '../Banner/Banner';
 
 const Cart = () => {
 
@@ -15,10 +13,17 @@ const Cart = () => {
 
     if (cart.length === 0) {
         return (
-            <div className='cart__title'>
-                <h2 >Tu carrito está vacío</h2>
-
-                <Link to="/">Ir a comprar</Link>
+            <div>
+                <Banner />
+                <div className='cart__empty'>
+                    <h2>Tu carrito está vacío</h2>
+                    <br/>
+                    <h4 className='cart__subtotal'>Subtotal: ${cartTotal()}</h4>
+                    <br/>
+                    <p>¡No te pierdas las ofertas que tenemos para tu mascota!</p>
+                    <br/>
+                    <Link to="/"><Button variant="outlined">Comprar</Button></Link>
+                </div>
             </div>
         )
     }
@@ -77,7 +82,6 @@ const Cart = () => {
                 ><Button variant="contained" color="success">Finalizar compra</Button>
                 </Link>
             </div>
-
         </div>
     )
 }

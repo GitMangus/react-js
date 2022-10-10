@@ -67,20 +67,18 @@ const Checkout = () => {
                 .then(() => {
                     addDoc(ordenesRef, orden)
                         .then((doc) => {
-                            console.log(doc.id)
                             setOrderId(doc.id)
                             finishPurchase()
                         })
                 })
         } else {
             alert("Hay items sin stock")
-            console.log(outOfStock)
         }
     }
 
     if (orderId) {
         return (
-            <div>
+            <div className='ckeckout__success'>
                 <h2>¡Compra exitosa!</h2>
                 <hr />
                 <p>Número de orden: <strong>{orderId}</strong></p>
@@ -135,7 +133,6 @@ const Checkout = () => {
                     variant="contained">
                     Enviar
                 </Button>
-
             </form>
         </div>
     )

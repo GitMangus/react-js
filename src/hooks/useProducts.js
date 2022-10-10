@@ -9,7 +9,6 @@ const useProducts = () => {
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
-    //console.log(categoryId)
 
     useEffect(() => {
         setLoading(true);
@@ -23,7 +22,6 @@ const useProducts = () => {
         getDocs(q)
             .then((resp) => {
                 const productosDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-                console.log(productosDB)
 
                 setProductos(productosDB)
             })

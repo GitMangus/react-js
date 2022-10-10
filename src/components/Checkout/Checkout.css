@@ -6,7 +6,8 @@
 
 .checkout__title {
     color: rgb(105, 105, 105);
-    font-size: 30px;   
+    font-size: 30px;  
+    margin-top: 100px; 
 }
 
 .checkout__sub {
@@ -42,4 +43,8 @@
 
 .checkout__button{
     width: 100px;
+}
+
+.ckeckout__success{
+    margin: 120px 100px;
 }
